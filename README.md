@@ -37,3 +37,17 @@ Every weekday, at 17:30
 ```
 
 <br /><br />
+
+## Find, Search by directory name.
+```bash
+find . -type d -name 'text'
+```
+
+<br /><br />
+
+## Grep, Regular expression to search for text in files.
+```bash
+grep -rni -E '^text' .
+```
+
+<br /><br />

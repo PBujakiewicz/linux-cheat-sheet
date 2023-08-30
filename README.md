@@ -51,3 +51,10 @@ grep -rni -E '^text' .
 ```
 
 <br /><br />
+
+## Checking the ssl certificate.
+```bash
+openssl x509 -in /dir/ca.crt -text -noout
+```
+
+<br /><br />

@@ -62,7 +62,11 @@ openssl x509 -in /dir/ca.crt -text -noout
 
 ## My bash prompt (PS1).
 ```bash
-vim .bashrc
+#vim .bashrc
+
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
 
 if [ "$color_prompt" = yes ]; then
     PS1='[\D{%H:%M:%S}]\[\e[91m\]$(parse_git_branch)\[\e[00m\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '

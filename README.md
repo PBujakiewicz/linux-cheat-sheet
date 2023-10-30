@@ -71,7 +71,7 @@ parse_git_branch() {
 if [ "$color_prompt" = yes ]; then
     PS1='[\D{%H:%M:%S}]\[\e[91m\]$(parse_git_branch)\[\e[00m\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='[\D{%H:%M:%S}]\[\e[91m\]$(parse_git_branch)\[\e[00m\]${debian_chroot:+($debian_chroot)}\u:\w\$ '
+    PS1='[\D{%H:%M:%S}]$(parse_git_branch)${debian_chroot:+($debian_chroot)}\u:\w\$ '
 fi
 ```
 

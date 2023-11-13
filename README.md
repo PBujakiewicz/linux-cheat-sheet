@@ -64,15 +64,41 @@ openssl x509 -in /dir/ca.crt -text -noout
 ```bash
 #vim .bashrc
 
+#########################################################################
+
+timer_start() {
+  timer=${timer:-$SECONDS}
+}
+timer_stop() {
+  timer_show=$(($SECONDS - $timer))
+  unset timer
+}
+trap 'timer_start' DEBUG
+if [ "$PROMPT_COMMAND" == "" ]; then
+  PROMPT_COMMAND="timer_stop"
+else
+  PROMPT_COMMAND="$PROMPT_COMMAND; timer_stop"
+fi
+
+# https://github.com/jonmosco/kube-ps1
+source /home/pbujakiewicz/.kube-ps1/kube-ps1.sh
+KUBE_PS1_SYMBOL_COLOR='cyan'
+KUBE_PS1_CTX_COLOR='green'
+KUBE_PS1_NS_ENABLE='false'
+KUBE_PS1_PREFIX='['
+KUBE_PS1_SUFFIX=']'
+
 parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 
 if [ "$color_prompt" = yes ]; then
-    PS1='[\D{%H:%M:%S}]\[\e[91m\]$(parse_git_branch)\[\e[00m\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+  PS1='\n[\[\033[01;32m\]\D{%H:%M:%S}\[\033[00m\]]\[\e[m\] [\[\033[01;36m\]\w\[\033[00m\]] [\[\033[01;32m\]$(parse_git_branch)\[\033[00m\]]\[\e[m\] [${timer_show}s]\n$(kube_ps1)\n\[\033[01;32m\]\$\[\033[00m\]\[\e[m\] '
 else
-    PS1='[\D{%H:%M:%S}]$(parse_git_branch)${debian_chroot:+($debian_chroot)}\u:\w\$ '
+  PS1='\n[D{%H:%M:%S}] [\w] [$(parse_git_branch)] [${timer_show}s]\n$(kube_ps1)\n\$ '
 fi
+
+#########################################################################
 ```
 
 <br /><br />

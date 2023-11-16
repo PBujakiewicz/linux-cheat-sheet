@@ -102,3 +102,11 @@ fi
 ```
 
 <br /><br />
+
+## Git rebase master on branch.
+```bash
+git fetch
+git rebase origin/master
+```
+
+<br /><br />

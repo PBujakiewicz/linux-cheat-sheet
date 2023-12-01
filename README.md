@@ -110,3 +110,12 @@ git rebase origin/master
 ```
 
 <br /><br />
+
+## LDAP search.
+```bash
+ldapsearch -x -H "ldap://127.0.0.1:389" -D "CN=ldap auth,OU=SA,DC=company,DC=com" -w password -b "OU=Search here,DC=company,DC=com" "(&(objectClass=group)(|(cn=dev*)(cn=devops*)))"
+or graphical solution
+Apache Directory Studio - https://directory.apache.org/studio/
+```
+
+<br /><br />

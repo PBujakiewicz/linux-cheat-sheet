@@ -113,7 +113,12 @@ git rebase origin/master
 
 ## LDAP search.
 ```bash
+No TLS
 ldapsearch -x -H "ldap://127.0.0.1:389" -D "CN=ldap auth,OU=SA,DC=company,DC=com" -w password -b "OU=Search here,DC=company,DC=com" "(&(objectClass=group)(|(cn=dev*)(cn=devops*)))"
+
+TLS
+env LDAPTLS_CACERT=domain.cer ldapsearch -x -H "ldaps://127.0.0.1:389" -D "CN=ldap auth,OU=SA,DC=company,DC=com" -w password -b "OU=Search here,DC=company,DC=com" "(&(objectClass=group)(|(cn=dev*)(cn=devops*)))"
+
 or graphical solution
 Apache Directory Studio - https://directory.apache.org/studio/
 ```

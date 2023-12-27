@@ -124,3 +124,20 @@ Apache Directory Studio - https://directory.apache.org/studio/
 ```
 
 <br /><br />
+
+## LVM Resize.
+```bash
+# add 10 GB
+lvextend -L+10G /dev/mapper/vol
+
+# add 100% free space
+lvextend -l+100%FREE /dev/mapper/vol
+
+# xfs file system
+xfs_growfs /dev/centos/var
+
+# ext3/4 file system
+resize2fs /dev/centos/var
+```
+
+<br /><br />

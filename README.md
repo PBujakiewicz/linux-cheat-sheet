@@ -40,7 +40,7 @@ Every weekday, at 17:30
 
 ## Find, Search by directory name.
 ```bash
-find . -type d -name 'text'
+find . -type d -name '*text.txt'
 ```
 
 <br /><br />

@@ -9,6 +9,13 @@ find /proc/*/fd -ls | grep '(deleted)' | awk '{print $11}' | xargs -I % sh -c 'e
 
 <br /><br />
 
+## Du with excludes.
+```bash
+du --exclude=/d0 --exclude=/d1 -hd 1 /
+```
+
+<br /><br />
+
 ## Cron syntax.
 ```bash
 *     *     *   *    *       user   command_to_execute

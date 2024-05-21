@@ -134,6 +134,9 @@ Apache Directory Studio - https://directory.apache.org/studio/
 
 ## LVM Resize.
 ```bash
+# scan resize disk
+echo 1>/sys/class/block/sdX/device/rescan
+
 # add 10 GB
 lvextend -L+10G /dev/mapper/vol
 

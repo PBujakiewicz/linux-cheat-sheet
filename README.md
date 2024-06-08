@@ -134,7 +134,11 @@ Apache Directory Studio - https://directory.apache.org/studio/
 
 ## LVM Resize.
 ```bash
-# scan resize disk
+# scan pci for new disk
+find /sys -iname 'scan'
+echo "- - -" > /sys/devices/pci0000:00/0000:00:07.1/host0/scsi_host/host0/scan
+
+# scan resize old disk
 echo 1>/sys/class/block/sdX/device/rescan
 
 # add 10 GB

@@ -52,6 +52,13 @@ find . -type d -name '*text.txt'
 
 <br /><br />
 
+## Find, Search by last modified.
+```bash
+find . -type f -printf '%TY-%Tm-%Td %TT %p\n' | sort -r
+```
+
+<br /><br />
+
 ## Grep, Regular expression to search for text in files.
 ```bash
 grep -rni -E '^text' .

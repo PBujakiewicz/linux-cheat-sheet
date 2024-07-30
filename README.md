@@ -188,8 +188,8 @@ echo $((329638739968 / 1024 / 1024 / 1024))
 ```
 ```bash
 #change
-#mysql
-SET GLOBAL innodb_buffer_pool_size= NEW_SIZE;
+#mysql sometimes does not accept the <NEW_SIZE>, then you have to decrease it!!
+echo "SET GLOBAL innodb_buffer_pool_size=<NEW_SIZE>;" | mysql
 #file
 vim /etc/my.cnf
 ```

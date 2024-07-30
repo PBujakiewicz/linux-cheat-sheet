@@ -148,6 +148,13 @@ echo "- - -" > /sys/devices/pci0000:00/0000:00:07.1/host0/scsi_host/host0/scan
 # scan resize old disk
 echo 1>/sys/class/block/sdX/device/rescan
 
+# create PV and add to group
+pvcreate /dev/sda
+sudo vgextend centos /dev/sda
+
+# scan when PV is whole disk and is added to group
+pvresize /dev/sda
+
 # add 10 GB
 lvextend -L+10G /dev/mapper/vol
 

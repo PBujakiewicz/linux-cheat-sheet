@@ -174,16 +174,19 @@ resize2fs /dev/centos/var
 ```bash
 # go root
 sudo su -
-
+```
+```bash
 #checking current values
 grep 'innodb_buffer_pool_size' /etc/my.cnf
 echo "SHOW GLOBAL VARIABLES LIKE 'innodb_buffer_pool_size';" | mysql
 echo "SELECT ROUND (@@innodb_buffer_pool_size / 1024 / 1024 / 1024, 2) 'innodb_buffer_pool_size (GB)';" | mysql
-
+```
+```bash
 #recalculation
 echo $((307 * 1024 * 1024 * 1024))
 echo $((329638739968 / 1024 / 1024 / 1024))
-
+```
+```bash
 #change
 #mysql
 SET GLOBAL innodb_buffer_pool_size= NEW_SIZE;

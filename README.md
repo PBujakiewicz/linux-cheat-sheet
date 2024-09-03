@@ -195,3 +195,10 @@ vim /etc/my.cnf
 ```
 
 <br /><br />
+
+## Find IP in NewRelic.
+```sql
+SELECT uniques(host.ipV4Address) FROM Metric WHERE host.hostname LIKE '%jenkins-test%' AND host.ipV4Address IS NOT NULL
+```
+
+<br /><br />

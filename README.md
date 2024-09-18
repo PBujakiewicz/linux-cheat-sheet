@@ -215,3 +215,22 @@ while true; do echo "To się powtarza"; sleep 1; done
 
 <br /><br />
 
+## Mounting NFS and CIFS.
+```bash
+# NFS
+sudo mount -t nfs <server_ip>:/path/to/share /local/mount/point
+sudo umount /local/mount/point
+
+#/etc/fstab
+<server_ip>:/path/to/share /local/mount/point nfs defaults 0 0
+
+# CIFS
+sudo mount -t cifs -o username=<user>,password=<password> //<server_ip>/<share_name> /local/mount/point
+sudo umount /local/mount/point
+
+#/etc/fstab
+//<server_ip>/<share_name> /local/mount/point cifs username=<user>,password=<password> 0 0
+//<server_ip>/<share_name> /local/mount/point cifs credentials=/etc/cifs-credentials 0 0
+```
+
+<br /><br />

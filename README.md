@@ -202,3 +202,16 @@ SELECT uniques(host.ipV4Address) FROM Metric WHERE host.hostname LIKE '%jenkins-
 ```
 
 <br /><br />
+
+## Loop in bash terminal.
+```bash
+# for loop
+for i in {1..5}; do echo "Liczba: $i"; done
+for file in $(ls /home/pbujakiewicz/); do echo "Plik: $file"; done
+
+# while loop
+while true; do echo "To się powtarza"; sleep 1; done
+```
+
+<br /><br />
+

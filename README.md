@@ -234,3 +234,51 @@ sudo umount /local/mount/point
 ```
 
 <br /><br />
+
+## Copying a directory via ssh. Useful when no space on device.
+```bash
+tar czpf - /home/devops/dir | ssh devops@10.0.0.1 "sudo tar xzpf - --strip-components=2 -C /home/devops"
+```
+
+<br /><br />
+
+## nohup, an alternative when screen is not installed.
+```bash
+# start
+cd /tmp/
+nohup tar czpf - /home/devops/dir | ssh devops@10.0.0.1 "sudo tar xzpf - --strip-components=2 -C /home/devops" 2>&1 &
+
+# check
+ps aux | grep tar
+
+# stop
+kill 12345
+```
+
+<br /><br />
+
+## screen.
+```bash
+# install
+sudo apt install screen
+sudo yum install screen
+
+# check
+screen -ls
+
+# start
+screen -S file
+
+# detach a screen session
+screen -d 1234
+# or
+Ctrl + a + d
+
+# reattach a screen session
+screen -r 1234
+
+# stop
+exit
+```
+
+<br /><br />

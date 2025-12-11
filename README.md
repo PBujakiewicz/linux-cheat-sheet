@@ -237,7 +237,7 @@ sudo umount /local/mount/point
 
 ## Copying a directory via ssh. Useful when no space on device.
 ```bash
-rsync -az -e ssh /home/devops/dir devops@10.0.0.1:/home/devops/.
+rsync -vaz -e ssh /home/devops/dir devops@10.0.0.1:/home/devops/.
 or
 tar czpf - /home/devops/dir | ssh devops@10.0.0.1 "sudo tar xzpf - --strip-components=2 -C /home/devops"
 ```

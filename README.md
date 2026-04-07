@@ -196,6 +196,15 @@ vim /etc/my.cnf
 
 <br /><br />
 
+## Mysql - find and kill process by IP
+```sql
+SELECT ID,HOST,DB,COMMAND,TIME,STATE,INFO FROM information_schema.processlist WHERE HOST LIKE '10.10.10.10%' ORDER BY TIME DESC;
+
+KILL 0001;
+```
+
+<br /><br />
+
 ## Find IP in NewRelic.
 ```sql
 SELECT uniques(host.ipV4Address) FROM Metric WHERE host.hostname LIKE '%jenkins-test%' AND host.ipV4Address IS NOT NULL

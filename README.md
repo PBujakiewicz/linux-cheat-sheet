@@ -95,7 +95,10 @@ else
 fi
 
 # https://github.com/jonmosco/kube-ps1
-source /home/pbujakiewicz/.kube-ps1/kube-ps1.sh
+#Ubuntu
+#source /home/pbujakiewicz/.kube-ps1/kube-ps1.sh
+#MacOS
+source "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
 KUBE_PS1_SYMBOL_COLOR='cyan'
 KUBE_PS1_CTX_COLOR='green'
 KUBE_PS1_NS_ENABLE='false'

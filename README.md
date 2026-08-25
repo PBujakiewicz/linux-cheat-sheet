@@ -296,3 +296,12 @@ exit
 ```
 
 <br /><br />
+
+## Akamai staging one line test - cache.
+```bash
+curl -sSI --resolve web.bujakiewiczpawel.pl:443:$(dig +short web.bujakiewiczpawel.pl.edgekey-staging.net | tail -1) https://web.bujakiewiczpawel.pl/api/XXX/home | grep -i cache-control
+```
+
+<br /><br />
+
+
